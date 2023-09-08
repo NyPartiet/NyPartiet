@@ -9,7 +9,7 @@
             font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #C75284; /* Changed background color */
+            background-color: #C75284;
         }
         header {
             background-color: #C75284;
@@ -29,10 +29,18 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         h2 {
-            color: #C75284; 
+            color: #C75284;
+            cursor: pointer;
+            border: 2px solid #C75284; /* Add border */
+            padding: 10px;
+            border-radius: 10px; /* Add rounded corners */
         }
         h3 {
-            color: #FF0000; 
+            color: #FF0000;
+            cursor: pointer;
+            border: 2px solid #FF0000;
+            padding: 10px;
+            border-radius: 10px;
         }
         p {
             line-height: 1.6;
@@ -40,6 +48,14 @@
         ul {
             list-style-type: disc;
             margin-left: 20px;
+        }
+        /* Hide the content initially */
+        .content {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border: 2px solid #C75284;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -49,36 +65,62 @@
     </header>
 
     <div class="container">
-        <h2>Vår Visjon for Fremtiden</h2>
-        <p>Vi i NyPartiet er forpliktet til å forme en lys og bærekraftig fremtid for alle, med fokus på våre unge borgere. Våre hovedmål inkluderer:</p>
+        <h2 onclick="toggleContent('content1')">Vår Visjon for Fremtiden</h2>
+        <div id="content1" class="content">
+            <p>Vi i NyPartiet er forpliktet til å forme en lys og bærekraftig fremtid for alle, med fokus på våre unge borgere. Våre hovedmål inkluderer:</p>
+        </div>
 
-        <h2>Gratis Skolegang</h2>
-        <p>Vi vil arbeide for å sikre at skolegang er tilgjengelig for alle, uavhengig av økonomisk bakgrunn. Utdanning er nøkkelen til din suksess.</p>
+        <h2 onclick="toggleContent('content2')">Gratis Skolegang</h2>
+        <div id="content2" class="content">
+            <p>Vi vil arbeide for å sikre at skolegang er tilgjengelig for alle, uavhengig av økonomisk bakgrunn. Utdanning er nøkkelen til din suksess.</p>
+        </div>
 
-        <h2>Kutt i Klimagassutslipp</h2>
-        <p>Vår planet er i fare, og vi vil ta ledelsen i å redusere klimagassutslippene. Sammen kan vi bekjempe klimaendringene og bevare naturen for kommende generasjoner.</p>
+        <h2 onclick="toggleContent('content3')">Kutt i Klimagassutslipp</h2>
+        <div id="content3" class="content">
+            <p>Vår planet er i fare, og vi vil ta ledelsen i å redusere klimagassutslippene. Sammen kan vi bekjempe klimaendringene og bevare naturen for kommende generasjoner.</p>
+        </div>
 
-        <h2>Sikre Alle En God Utdanning</h2>
-        <p>Vi lover å sikre at hver ungdom får tilgang til en kvalitetsutdanning som forbereder dem for en fremtid full av muligheter.</p>
+        <h2 onclick="toggleContent('content4')">Sikre Alle En God Utdanning</h2>
+        <div id="content4" class="content">
+            <p>Vi lover å sikre at hver ungdom får tilgang til en kvalitetsutdanning som forbereder dem for en fremtid full av muligheter.</p>
+        </div>
 
-        <h2>Ta Vare På Naturen</h2>
-        <p>Naturen er vår arv, og vi vil beskytte den. Vi står for bærekraftig utvikling og bevaring av naturområder.</p>
+        <h2 onclick="toggleContent('content5')">Ta Vare På Naturen</h2>
+        <div id="content5" class="content">
+            <p>Naturen er vår arv, og vi vil beskytte den. Vi står for bærekraftig utvikling og bevaring av naturområder.</p>
+        </div>
 
-        <h2>Motivere Skole for Både Elever og Lærere</h2>
-        <p>Vi vil investere i moderne ressurser og motivere lærere og elever for å skape en inspirerende skoleopplevelse for alle.</p>
+        <h2 onclick="toggleContent('content6')">Motivere Skole for Både Elever og Lærere</h2>
+        <div id="content6" class="content">
+            <p>Vi vil investere i moderne ressurser og motivere lærere og elever for å skape en inspirerende skoleopplevelse for alle.</p>
+        </div>
 
-        <h2>En Sikret Grønn Fremtid</h2>
-        <p>Vi forplikter oss til å gjøre fremtiden grønn og bærekraftig for alle:</p>
-        <ul>
-            <li>Billigere kollektivtransport for alle</li>
-            <li>Ta mer vare på naturen</li>
-            <li>Bruke mer fornybar energi</li>
-            <li>Kutte ned på diesel- og oljebruk</li>
-        </ul>
-
-        <p>Sammen kan vi forme en bedre fremtid for oss alle. Din stemme betyr noe. Stem på NyPartiet for en lysere og grønnere fremtid!</p>
+        <h2 onclick="toggleContent('content7')">En Sikret Grønn Fremtid</h2>
+        <div id="content7" class="content">
+            <p>Vi forplikter oss til å gjøre fremtiden grønn og bærekraftig for alle:</p>
+            <ul>
+                <li>Billigere kollektivtransport for alle</li>
+                <li>Ta mer vare på naturen</li>
+                <li>Bruke mer fornybar energi</li>
+                <li>Kutte ned på diesel- og oljebruk</li>
+            </ul>
+        </div>
         
-        <h3>En stemme til Anker er en stemme til deg</h3>
+        <h3 onclick="toggleContent('content8')">En stemme til Anker er en stemme til deg!</h3>
+        <div id="content8" class="content">
+            <p>Sammen kan vi forme en bedre fremtid for oss alle. Din stemme betyr noe. Stem på NyPartiet for en lysere og grønnere fremtid!</p>
+        </div>
     </div>
+
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
